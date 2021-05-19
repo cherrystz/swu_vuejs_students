@@ -5,7 +5,7 @@
     </v-btn>
     <v-toolbar-title>CMPOS Workshop V</v-toolbar-title>
     <v-spacer></v-spacer>
-    <h1>Dev</h1>
+    <h1>Dev  {{ $store.state.count }}</h1>
     <!-- <span>{{ $store.getters["username"] | capitalize }}</span> -->
     <v-btn icon>
       <v-icon>mdi-export</v-icon>

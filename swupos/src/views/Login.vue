@@ -6,11 +6,12 @@
         height="200px"
         src="@/assets/login_header.jpg"
       >
-        <v-card-title>Login {{ $store.state.count }}</v-card-title>
+        <v-card-title @click="$store.state.count++"
+        >Login {{ $store.state.count }}</v-card-title>
       </v-img>
 
       <v-card-text>
-        <v-form @submit.prevent="submit" ref="form">
+        <v-form @submit.prevent="submit" ref="loginForm">
           <v-text-field
             v-model="account.username"
             name="username"
@@ -75,14 +76,15 @@ export default {
   },
   methods: {
     submit() {
-      if (this.$refs.form.validate()) {
+      if (this.$refs.loginForm.validate()) {
         this.$store.dispatch({ type: "doLogin", ...this.account });
         // this.$store.dispatch({ type: "doLogin" });
       }
     },
     clear() {
-      this.$store.state.counter++;
-      this.$refs.form.reset();
+      // this.$store.state.counter++;
+      // this.$refs.loginForm.reset();
+      this.$store.dispatch({ type: "doLogin" })
     },
   },
 };
