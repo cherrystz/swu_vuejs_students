@@ -3,7 +3,7 @@
     <div>
       <Header />
       <Content />
-      <Menu />
+      <!-- <Menu /> -->
     </div>
   </v-app>
 </template>

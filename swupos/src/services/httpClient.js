@@ -15,10 +15,10 @@ axios.interceptors.request.use(async (config) => {
     config.url = join(apiUrl, config.url);
   }
 
-  // const userToken = localStorage.getItem(server.TOKEN_KEY);
-  // if (userToken) {
-  //   config.headers = { Authorization: `Bearer ${userToken}` };
-  // }
+  const userToken = localStorage.getItem(server.TOKEN_KEY);
+  if (userToken) {
+    config.headers = { Authorization: `Bearer ${userToken}` };
+  }
   config.timeout = 10000; // 10 Second
   return config;
 });
