@@ -21,6 +21,11 @@ const sub_paths = [
   export default  {
     name: 'Header',
     props: [],
+    computed: {
+      random() {
+        return Math.random()
+      }
+    },
     methods: {
       isDev(){
         return process.env.VUE_APP_IS_PRODUCTION === '0';
