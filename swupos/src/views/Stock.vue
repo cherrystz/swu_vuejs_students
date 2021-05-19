@@ -49,7 +49,9 @@
           subtitle="101"
         >
           <template v-slot:avatar>
-            <v-img src="https://image.shutterstock.com/image-vector/cute-fun-dog-cartoon-260nw-350881304.jpg"/>
+            <v-img
+              src="https://image.shutterstock.com/image-vector/cute-fun-dog-cartoon-260nw-350881304.jpg"
+            />
           </template>
         </StockCard>
       </v-col>
@@ -61,7 +63,7 @@
         :headers="headers"
         :items="mDataArray"
         :items-per-page="7"
-        class="elevation-1"
+        class="elevation-2"
       >
         <template v-slot:top>
           <v-toolbar flat color="white">
@@ -85,11 +87,13 @@
               <span>New Product</span>
             </v-btn>
           </v-toolbar>
+       
+       
         </template>
 
         <template v-slot:item="{ item }">
           <tr :class="{ primary: item.product_id === selectedProductId }">
-            <td @click="editItem(item)">{{ item.product_id }}</td>
+            <td @click="editItem(item)">{{ item.product_id | prefix }}</td>
             <td @click="editItem(item)">
               <v-img
                 v-bind:src="item.image | imageUrl"

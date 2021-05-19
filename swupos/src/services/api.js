@@ -36,12 +36,11 @@ const login = async (values) => {
   }
 };
 
-export default 
-{ 
-  register, 
-  logoff, 
-  login, 
-  isLoggedIn, 
-  ...productAPI, 
-  ...transactionAPI ,
+export default {
+  register,
+  logoff,
+  login,
+  isLoggedIn,
+  ...productAPI,
+  ...transactionAPI,
 };

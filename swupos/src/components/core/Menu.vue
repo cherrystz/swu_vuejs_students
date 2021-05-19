@@ -71,9 +71,8 @@
 </script>
 
 <style scoped lang="scss">
-// .menu {
-  
-// }
+.menu {
+}
 
 .tile {
   color: #fff;

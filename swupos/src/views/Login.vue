@@ -7,7 +7,8 @@
         src="@/assets/login_header.jpg"
       >
         <v-card-title @click="$store.state.count++"
-        >Login {{ $store.state.count }}</v-card-title>
+          >Login {{ $store.state.count }}</v-card-title
+        >
       </v-img>
 
       <v-card-text>
@@ -78,13 +79,12 @@ export default {
     submit() {
       if (this.$refs.loginForm.validate()) {
         this.$store.dispatch({ type: "doLogin", ...this.account });
-        // this.$store.dispatch({ type: "doLogin" });
       }
     },
     clear() {
       // this.$store.state.counter++;
-      // this.$refs.loginForm.reset();
-      this.$store.dispatch({ type: "doLogin" })
+      // this.$refs.form.reset();
+      this.$store.dispatch({ type: "doLogin" });
     },
   },
 };
