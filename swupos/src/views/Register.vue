@@ -1,8 +1,5 @@
 <template>
-  <v-card
-    class="mx-auto"
-    max-width="400"
-  >
+  <v-card class="mx-auto" max-width="400">
     <v-img
       class="white--text align-end"
       height="200px"
@@ -40,59 +37,33 @@
         <div style="height: 10px;"></div>
       </v-form>
     </v-card-text>
-
-    <!-- Two way binding -->
-    <!-- <v-card-text class="text--primary">
-      <form >
-        <input 
-          @change=" (e) => (account.username = e.target.value)"
-          :value="account.username"
-          type="text" placeholder="username" 
-          name="username" 
-        />
-        <br/>
-        <input
-          v-model="account.password" 
-          type="text" placeholder="password" 
-          name="password" 
-        />
-        <br/>
-
-        <button @click="submit" type="button">Submit</button>
-      </form>
-    </v-card-text> -->
   </v-card>
 </template>
 
 <script>
-import axios from 'axios';
-import api from '@/services/api';
+import axios from "axios";
+import api from "@/services/api";
 
 export default {
-  name: 'Register',
+  name: "Register",
   data() {
     return {
       account: {
         username: "",
-        password: ""
+        password: "",
       },
       emailRules: [(v) => !!v || "E-mail is required"],
-      passwordRules: [(v) => !!v || "Password is required"]
+      passwordRules: [(v) => !!v || "Password is required"],
     };
-
   },
   methods: {
     async onSubmit() {
       const result = await api.register(this.account);
-      alert(JSON.stringify(result));
+      alert(JSON.stringify(result))
     },
-    onCancel() {
-
-    }
+    onCancel() {},
   },
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

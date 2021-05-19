@@ -10,6 +10,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static(__dirname + "/uploaded"));
 app.use("/api/v2", require("./api"));
 
-app.listen(3000, () => {
+app.listen(8081, () => {
     console.log("server is ready...");
 });
