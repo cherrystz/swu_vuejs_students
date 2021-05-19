@@ -15,3 +15,10 @@ Content-Type: application/json
 
 ### get product
 GET http://localhost:3000/api/v2/product HTTP/1.1
+
+### Upload product
+curl --location --request POST 'http://localhost:8081/api/v2/product/' \
+--form 'name=""' \
+--form 'image=@"/Users/chaiyasit/Downloads/ic_bitcoin@3x.png"' \
+--form 'price="1234"' \
+--form 'stock="5555"'

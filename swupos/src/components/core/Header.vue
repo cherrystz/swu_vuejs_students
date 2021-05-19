@@ -1,6 +1,6 @@
 <template lang="html">
   <v-app-bar app color="#1c2835" dark>
-    <v-btn v-if="isShowBackBtn" icon>
+    <v-btn v-if="isShowBackBtn" @click="$router.back()" icon>
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
     <v-toolbar-title>CMPOS Workshop V</v-toolbar-title>
