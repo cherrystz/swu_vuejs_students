@@ -1,0 +1,11 @@
+### Authen
+GET http://localhost:3000/api/v2/auth HTTP/1.1
+
+### Login
+POST http://localhost:3000/api/v2/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "1234"
+}
