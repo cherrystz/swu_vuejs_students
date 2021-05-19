@@ -6,7 +6,7 @@
         height="200px"
         src="@/assets/login_header.jpg"
       >
-        <v-card-title>Login</v-card-title>
+        <v-card-title>Login {{ $store.state.count }}</v-card-title>
       </v-img>
 
       <v-card-text>
