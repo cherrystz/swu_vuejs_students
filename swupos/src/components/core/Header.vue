@@ -1,6 +1,6 @@
 <template lang="html">
   <v-app-bar app color="#1c2835" dark>
-    <v-btn icon>
+    <v-btn v-if="true" icon>
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
     <v-toolbar-title>CMPOS Workshop V</v-toolbar-title>
@@ -21,6 +21,14 @@ const sub_paths = [
   export default  {
     name: 'Header',
     props: [],
+    methods: {
+      isDev(){
+        return process.env.VUE_APP_IS_PRODUCTION === '0';
+      },
+      onClickLogOff() {
+        this.$store.dispatch('doLogout');
+      }
+    },
 }
 </script>
 
