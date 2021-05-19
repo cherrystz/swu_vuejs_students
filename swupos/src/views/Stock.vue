@@ -22,8 +22,8 @@
             value: "name"
           },
           {
-            text: "Price",
-            value: "price"
+            text: "Price (Baht)",
+            value: "price",
           }
         ],
         data: [
