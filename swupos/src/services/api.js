@@ -1,6 +1,8 @@
 import router from "@/router";
 import { server } from "@/services/constants";
 import httpClient from "@/services/httpClient";
+import * as productAPI from "@/services/api_product";
+import * as transactionAPI from "@/services/api_transaction";
 
 const register = async (values) => {
   const result = await httpClient.post(server.REGISTER_URL, values);
@@ -34,4 +36,12 @@ const login = async (values) => {
   }
 };
 
-export default { register, logoff, login, isLoggedIn };
+export default 
+{ 
+  register, 
+  logoff, 
+  login, 
+  isLoggedIn, 
+  ...productAPI, 
+  ...transactionAPI ,
+};
