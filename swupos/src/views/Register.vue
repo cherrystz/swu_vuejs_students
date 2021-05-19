@@ -1,5 +1,4 @@
 <template>
-
   <v-container>
     <v-card class="mx-auto" max-width="400">
       <v-img
@@ -42,7 +41,6 @@
       </v-card-text>
     </v-card>
   </v-container>
-  
 </template>
 
 <script>
@@ -65,7 +63,7 @@ export default {
     async onSubmit() {
       const result = await api.register(this.account);
       if (!result) {
-        alert(JSON.stringify(result))
+        alert(JSON.stringify(result));
       }
     },
     onCancel() {

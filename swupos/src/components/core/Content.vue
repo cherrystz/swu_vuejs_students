@@ -1,15 +1,13 @@
 <template>
-    <div>
-        <router-view />
-    </div>
+  <v-main>
+    <router-view />
+  </v-main>
 </template>
 
 <script>
 export default {
-    name: "Content"
-}
+  name: "Content",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

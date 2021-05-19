@@ -57,10 +57,10 @@ const routes = [
     path: "/",
     redirect: "/login",
   },
-  {   // * must be the last sequences (page not found)
+  {
     path: "*",
     redirect: "/login"
-  }
+  }  
 ];
 
 const router = new VueRouter({

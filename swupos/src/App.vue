@@ -1,30 +1,26 @@
 <template>
-  <v-app>
-    <div>
+  <div>
+    <v-app>
       <Header />
+      <Menu />
       <Content />
-      <!-- <Menu /> -->
-    </div>
-  </v-app>
+    </v-app>
+  </div>
 </template>
 
 <script>
-import Header from "@/components/core/Header.vue";
-import Menu from "@/components/core/Menu.vue";
-import Content from "@/components/core/Content.vue";
+import Header from "@/components/core/Header";
+import Menu from "@/components/core/Menu";
+import Content from "@/components/core/Content";
 
 export default {
   name: "App",
   components: {
     Header,
     Menu,
-    Content
-  }
-}
+    Content,
+  },
+};
 </script>
 
-</script>
-
-<style>
-
-</style>
+<style></style>
