@@ -52,4 +52,15 @@ const uploadImage = async (files, doc) => {
     await Products.findOneAndUpdate({ product_id: doc.product_id }, doc);
   }
 };
+
+// http://localhost:8081/api/v2/test_sq?username=admin&password=1234
+router.get("/test_sq", (req, res) => {
+  res.json({ result: req.query })
+});
+
+// http://localhost:8081/api/v2/test_params/bangkok/japan
+router.get("/test_params/:from/:to", (req, res) => {
+  res.json({ result: req.params })
+});
+
 module.exports = router;
