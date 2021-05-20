@@ -1,13 +1,16 @@
 # swupos
 
-vue add router
-vue add vuetify
-yarn add axios chart.js@2 material-design-icons-iconfont vue-chartjs vue-moment vue2-filters
-yarn add material-design-icons-iconfont
-http://travistidwell.com/jsencrypt/demo/
+- vue add router
+- vue add vuetify
+- yarn add axios chart.js@2 material-design-icons-iconfont vue-chartjs vue-moment vue2-filters
+- yarn add material-design-icons-iconfont
+- http://travistidwell.com/jsencrypt/demo/
 
 // Add this in main.js
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
+```js
+import "material-design-icons-iconfont/dist/material-design-icons.css";
+```
 
 ### CORS
 
@@ -19,6 +22,7 @@ edit vue.config.js
 
 ### example of two-way binding and v-model
 
+```js
   <v-card-text class="text--primary">
       <form>
         <input
@@ -40,3 +44,4 @@ edit vue.config.js
         <button @click="submit" type="button">Submit</button>
       </form>
     </v-card-text>
+```
