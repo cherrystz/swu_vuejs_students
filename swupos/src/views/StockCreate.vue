@@ -102,6 +102,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.stock-create {
-}
+// .stock-create {
+
+// }
 </style>

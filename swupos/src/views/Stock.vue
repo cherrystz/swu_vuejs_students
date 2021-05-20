@@ -6,9 +6,14 @@
     <!-- Summary section -->
     <v-row>
       <v-col lg="3" md="6" sm="12" cols="12">
-        <StockCard title="TOTAL" avatar_bg="#00a65a" subtitle="1,800">
-          <template v-slot:avatar>
-            <v-icon color="white">mdi-cart-outline</v-icon>
+        <StockCard
+          title="TOTAL"
+          avatar_bg="#00a65a"
+          subtitle="1,800"
+          icon="mdi-abugida-thai"
+        >
+          <template v-slot:avatar_icon>
+            <v-icon color="white">mdi-account</v-icon>
           </template>
         </StockCard>
       </v-col>
@@ -19,8 +24,9 @@
           avatar_ic="mdi-flask-empty-outline"
           avatar_bg="#f39c12"
           subtitle="12"
+          icon="mdi-account-box-multiple"
         >
-          <template v-slot:avatar>
+          <template v-slot:avatar_icon>
             <v-img
               src="https://image.shutterstock.com/image-vector/cute-fun-dog-cartoon-260nw-350881304.jpg"
             />
@@ -35,7 +41,7 @@
           avatar_bg="#dd4b39"
           subtitle="2"
         >
-          <template v-slot:avatar>
+          <template v-slot:avatar_icon>
             <v-icon color="white">mdi-keyboard-return</v-icon>
           </template>
         </StockCard>
@@ -48,7 +54,7 @@
           avatar_bg="#00c0ef"
           subtitle="101"
         >
-          <template v-slot:avatar>
+          <template v-slot:avatar_icon>
             <v-img
               src="https://image.shutterstock.com/image-vector/cute-fun-dog-cartoon-260nw-350881304.jpg"
             />

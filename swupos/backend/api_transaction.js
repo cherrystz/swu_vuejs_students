@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Trans = require("./models/trans_schema");
+const jwt = require("./jwt")
 
-router.post("/transaction", async (req, res) => {
+router.post("/transaction", jwt.verify, async (req, res) => {
+  console.log(JSON.stringify(req.body));
   req.body.staff_id = req.userId;
   const doc = await Trans.create(req.body);
   res.json(doc);
