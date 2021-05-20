@@ -7,7 +7,7 @@ const { interceptor1, interceptor2 } = require("./my.interceptor");
 const jwt = require("./jwt")
 
 router.get("/product", jwt.verify, async (req, res) => {
-  const doc = await Products.find({});
+  const doc = await Products.find({}).sort({ created: -1 });
   res.json(doc);
 });
 

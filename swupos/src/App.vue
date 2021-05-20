@@ -1,8 +1,9 @@
 <template>
   <div>
+    <span class="bg_image"></span>
     <v-app>
-      <Header />
-      <Menu />
+      <Header v-if="$store.getters['isLogin']" />
+      <Menu v-if="$store.getters['isLogin']" />
       <Content />
     </v-app>
   </div>
@@ -20,7 +21,21 @@ export default {
     Menu,
     Content,
   },
+  mounted() {
+    this.$store.dispatch({ type: "restoreLogin" });
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+.bg_image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("assets/background.jpg") no-repeat center center;
+  background-size: cover;
+  transform: scale(1.1);
+}
+</style>

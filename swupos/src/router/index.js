@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Stock from "../views/Stock.vue";
@@ -8,9 +8,9 @@ import StockEdit from "../views/StockEdit.vue";
 import Shop from "../views/Shop.vue";
 import Report from "../views/Report.vue";
 import Transaction from "../views/Transaction.vue";
+import api from "@/services/api";
 
-Vue.use(VueRouter)
-
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -26,6 +26,7 @@ const routes = [
   {
     path: "/stock",
     name: "stock",
+    meta: { isSecured: true },
     component: Stock,
   },
   {
@@ -41,16 +42,19 @@ const routes = [
   {
     path: "/shop",
     name: "shop",
+    meta: { isSecured: true },
     component: Shop,
   },
   {
     path: "/report",
     name: "report",
+    meta: { isSecured: true },
     component: Report,
   },
   {
     path: "/transaction",
     name: "transaction",
+    meta: { isSecured: true },
     component: Transaction,
   },
   {
@@ -59,14 +63,29 @@ const routes = [
   },
   {
     path: "*",
-    redirect: "/login"
-  }  
+    redirect: "/login",
+  },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+// Router guard
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => (record.meta.isSecured ? true : false))) {
+    // secure route
+    if (api.isLoggedIn()) {
+      next();
+    } else {
+      next("/login");
+    }
+  } else {
+    // unsecure route
+    next();
+  }
+});
+
+export default router;

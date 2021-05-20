@@ -87,8 +87,6 @@
               <span>New Product</span>
             </v-btn>
           </v-toolbar>
-       
-       
         </template>
 
         <template v-slot:item="{ item }">
