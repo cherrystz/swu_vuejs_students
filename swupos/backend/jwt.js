@@ -18,7 +18,7 @@ module.exports = {
       expiresIn: expiresIn, // 30 days validity
       algorithm: "RS256",
     };
-    return jwt.sign(payload, "privateKEY", signOptions);
+    return jwt.sign(payload, privateKEY, signOptions);
   },
   verify: (req, res, next) => {
     //next();
@@ -38,7 +38,7 @@ module.exports = {
       algorithm: ["RS256"],
     };
 
-    jwt.verify(token, publicKEY, verifyOptions, function (err, decoded) {
+    jwt.verify(token, publicKEY, verifyOptions, function(err, decoded) {
       if (err) {
         if (err.name == "TokenExpiredError") {
           return res

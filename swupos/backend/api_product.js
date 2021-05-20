@@ -4,7 +4,7 @@ const Products = require("./models/product_schema");
 const formidable = require("formidable");
 const fs = require("fs-extra");
 const { interceptor1, interceptor2 } = require("./my.interceptor");
-const jwt = require('./jwt');
+const jwt = require("./jwt")
 
 router.get("/product", jwt.verify, async (req, res) => {
   const doc = await Products.find({});
@@ -64,8 +64,8 @@ router.get("/test_params/:from/:to", interceptor1, (req, res) => {
   res.json({ resutl: req.params });
 });
 
-// http://localhost:8081/api/v2/test_interceptor
-router.get("/test_interceptor", interceptor2, (req, res) => {
+// http://localhost:8081/api/v2/test_interceptor?token1=1234&token2=4321
+router.get("/test_interceptor", interceptor1, interceptor2, (req, res) => {
   res.json([1, 2, 3]);
 });
 
