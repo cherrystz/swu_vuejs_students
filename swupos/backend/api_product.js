@@ -3,8 +3,10 @@ const router = express.Router();
 const Products = require("./models/product_schema");
 const formidable = require("formidable");
 const fs = require("fs-extra");
+const { interceptor1, interceptor2 } = require("./my.interceptor");
+const jwt = require('./jwt');
 
-router.get("/product", async (req, res) => {
+router.get("/product", jwt.verify, async (req, res) => {
   const doc = await Products.find({});
   res.json(doc);
 });
@@ -52,14 +54,6 @@ const uploadImage = async (files, doc) => {
   }
 };
 
-const interceptor1 = (req, res, next) => {
-  if (req.query.token && req.query.token == "1234") {
-    next();
-  } else {
-    res.status(400).end("Invalid Token");
-  }
-};
-
 // http://localhost:8081/api/v2/test_sq?username=admin&password=1234
 router.get("/test_sq", interceptor1, (req, res) => {
   res.json({ resutl: req.query });
@@ -71,7 +65,7 @@ router.get("/test_params/:from/:to", interceptor1, (req, res) => {
 });
 
 // http://localhost:8081/api/v2/test_interceptor
-router.get("/test_interceptor", interceptor1, (req, res) => {
+router.get("/test_interceptor", interceptor2, (req, res) => {
   res.json([1, 2, 3]);
 });
 

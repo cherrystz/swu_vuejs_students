@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Users = require("./models/user_schema");
 const bcrypt = require("bcryptjs");
+const jwt = require("./jwt");
 
 router.post("/login", async (req, res) => {
   // destructuring || unpack
@@ -11,7 +12,14 @@ router.post("/login", async (req, res) => {
   if (doc) {
     const isPasswordValid = await bcrypt.compare(password, doc.password);
     if (isPasswordValid) {
-      res.json({ result: "ok", token: "1234", message: "success" });
+      const payload = {
+        id: doc._id,
+        level: doc.level,
+        username: doc.username,
+      };
+      const token = jwt.sign(payload, "100h");
+
+      res.json({ result: "ok", token, message: "success" });
     } else {
       res.json({ result: "nok", message: "invalid password" });
     }
