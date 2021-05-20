@@ -28,7 +28,6 @@ router.put("/product", async (req, res) => {
   });
 });
 
-
 router.delete("/product/id/:id", async (req, res) => {
   let doc = await Products.findOneAndDelete({ product_id: req.params.id });
   res.json({ result: "ok", message: doc });
@@ -53,14 +52,27 @@ const uploadImage = async (files, doc) => {
   }
 };
 
+const interceptor1 = (req, res, next) => {
+  if (req.query.token && req.query.token == "1234") {
+    next();
+  } else {
+    res.status(400).end("Invalid Token");
+  }
+};
+
 // http://localhost:8081/api/v2/test_sq?username=admin&password=1234
-router.get("/test_sq", (req, res) => {
-  res.json({ result: req.query })
+router.get("/test_sq", interceptor1, (req, res) => {
+  res.json({ resutl: req.query });
 });
 
 // http://localhost:8081/api/v2/test_params/bangkok/japan
-router.get("/test_params/:from/:to", (req, res) => {
-  res.json({ result: req.params })
+router.get("/test_params/:from/:to", interceptor1, (req, res) => {
+  res.json({ resutl: req.params });
+});
+
+// http://localhost:8081/api/v2/test_interceptor
+router.get("/test_interceptor", interceptor1, (req, res) => {
+  res.json([1, 2, 3]);
 });
 
 module.exports = router;
